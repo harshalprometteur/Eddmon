@@ -5,114 +5,91 @@
  * @format
  */
 
-import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import React, { useEffect } from 'react';
+import { StyleSheet, View } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+//SCREENS
+import { SCREENS } from './src/screens';
 
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
+//CONSTANT & ASSETS
+import { getScaleSize } from './src/constant';
+import { FONTS } from './src/assets';
 
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+//PACKAGES
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import _ from 'lodash'
+import Toast, { BaseToast, ErrorToast, InfoToast } from 'react-native-toast-message';
+
+
+const { Navigator, Screen } = createStackNavigator();
+
+const toastConfig = {
+  success: (props: any) => (
+    <BaseToast
+      {...props}
+      contentContainerStyle={{ paddingHorizontal: 15 }}
+      text1NumberOfLines={3}
+      text1Style={{
+        fontSize: getScaleSize(12),
+        fontFamily: FONTS.Regular,
+      }}
+    />
+  ),
+  error: (props: any) => (
+    <ErrorToast
+      {...props}
+      text1NumberOfLines={3}
+      text1Style={{
+        fontSize: getScaleSize(12),
+        fontFamily: FONTS.Regular,
+      }}
+    />
+  ),
+  info: (props: any) => (
+    <InfoToast
+      {...props}
+      text1NumberOfLines={3}
+      text1Style={{
+        fontSize: getScaleSize(12),
+        fontFamily: FONTS.Regular,
+      }}
+    />
+  ),
+};
+
+function App(): JSX.Element {
+
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
+    <View style={styles.container}>
+      <NavigationContainer>
+        <Navigator
+          screenOptions={{
+            headerShown: false,
+            gestureEnabled: false
+          }}
+          initialRouteName={SCREENS.Splash.identifier}
+        >
+          {_.toArray(SCREENS).map((item: any, index: number) => {
+            return item.component ? (
+              <Screen
+                key={item.identifier}
+                name={item.identifier}
+                component={item.component}
+              />
+            ) : null;
+          })}
+        </Navigator>
+      </NavigationContainer>
+      <Toast config={toastConfig} />
     </View>
   );
 }
 
-function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-}
-
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
+  container: {
+    flex: 1.0,
+  }
 });
 
 export default App;
