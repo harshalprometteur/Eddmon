@@ -197,7 +197,7 @@ export default function MissionsCompo(props: any) {
                                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                                         <Text
                                             font={FONTS.Regular}
-                                            color={'#BDBDBD'}
+                                            color={COLORS._BDBDBD}
                                             size={getScaleSize(14)}>
                                             {item?.start}
                                         </Text>
@@ -212,7 +212,7 @@ export default function MissionsCompo(props: any) {
                                         <Text
                                             style={{ textAlign: 'center' }}
                                             font={FONTS.Regular}
-                                            color={'#6C7280'}
+                                            color={COLORS._6C7280}
                                             size={getScaleSize(12)}>
                                             {item?.status}
                                         </Text>
@@ -246,7 +246,7 @@ const styles = StyleSheet.create({
         backgroundColor: COLORS._F3F4F6,
     },
     selectMission: {
-        backgroundColor: '#33B6FF',
+        backgroundColor: COLORS._33B6FF,
         flex: 1,
         justifyContent: 'center',
         height: getScaleSize(35),
@@ -275,10 +275,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        borderColor: '#6C7280',
+        borderColor: COLORS._6C7280,
         borderWidth: getScaleSize(1),
         fontSize: getScaleSize(16),
-        color: '#6C7280',
+        color: COLORS._6C7280,
         fontFamily: FONTS.Regular
     },
     txtNumberWithBorder1: {
@@ -288,7 +288,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         fontSize: getScaleSize(16),
-        color: '#6C7280',
+        color: COLORS._6C7280,
         fontFamily: FONTS.Regular
     },
     dropdownMenuStyle: {

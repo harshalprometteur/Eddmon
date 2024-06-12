@@ -108,7 +108,7 @@ export default function GeneralCoursCompo(props: any) {
 const styles = StyleSheet.create({
     container: {
         marginVertical: getScaleSize(24),
-        backgroundColor: COLORS._FFF,
+        backgroundColor: COLORS._211031,
     },
     inputContainer: {
         marginTop: getScaleSize(8),

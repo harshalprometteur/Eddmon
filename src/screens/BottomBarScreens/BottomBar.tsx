@@ -12,6 +12,7 @@ import Compte from "./Compte";
 import Candidatures from "./Candidatures";
 import Missions from "./Missions";
 import Mymissions from "../Mymissions";
+import Chat from "./Chat";
 
 //SCREENS
 
@@ -29,8 +30,9 @@ function BottomBar(props: any) {
             )}>
             <Tab.Screen name={'Compte'} component={Compte} />
             <Tab.Screen name={'Candidatures'} component={Candidatures} />
-            <Tab.Screen name={'Missions'} component={Mymissions} />
             <Tab.Screen name={'Aide'} component={Aide} />
+            <Tab.Screen name={'Missions'} component={Mymissions} />
+            <Tab.Screen name={'Chat'} component={Chat} />
         </Tab.Navigator>
     )
 }

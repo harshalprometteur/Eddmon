@@ -14,72 +14,85 @@ function Tabbar(props: any) {
         props.navigation.navigate(name);
     }
 
-    const images = [IMAGES.compte, IMAGES.candidatures, IMAGES.missions, IMAGES.aide]
-    const titles = [STRING.compte, STRING.candidatures, STRING.missions, STRING.aide]
+
+    const images = [IMAGES.tabIcon1, IMAGES.tabIcon2, IMAGES.tabIcon3, IMAGES.tabIcon4, IMAGES.tabIcon5]
 
     return (
-        <View style={styles.container}>
-            <View style={styles.tabContainer}>
-                {props.state.routes.map((route: any, index: number) => {
-                    return (
-                        <TabItem
-                            key={index}
-                            onPress={() => onPress(route.name, index)}
-                            title={titles[index]}
-                            selected={props.state.index == index}
-                            image={images[index]} />
-                    )
-                })}
+        <View style={{ backgroundColor: '#211031' }}>
+            <View style={styles.container}>
+                <View style={styles.tabContainer}>
+                    {props.state.routes.map((route: any, index: number) => {
+                        return (
+                            <TabItem
+                                key={index}
+                                onPress={() => onPress(route.name, index)}
+                                selected={props.state.index == index}
+                                image={images[index]} />
+                        )
+                    })}
+                </View>
             </View>
             <SafeAreaView />
-        </View >
+        </View>
     )
 }
 
 interface TabItemProps {
-    title: string | undefined,
+    // title: string | undefined,
     onPress: () => void,
-    selected: boolean ,
+    selected: boolean,
     image: ImageSourcePropType
 }
 
 function TabItem(props: TabItemProps) {
 
-
     return (
         <TouchableOpacity style={styles.tabItem} onPress={props.onPress}>
-            <Image style={styles.tabImage} source={props.image} />
-            <Text
-                style={{ marginTop: getScaleSize(5) }}
-                font={FONTS.Regular}
-                color={props.selected ? COLORS._FFF : COLORS._FFF}
-                size={getScaleSize(12)}>
-                {props.title}
-            </Text>
+            <View style={props.selected ? styles.selectIconBox : styles.iconBox}>
+                <Image style={[styles.tabImage, { tintColor: props.selected ? COLORS._FFF : COLORS._211031 }]} source={props.image} />
+            </View>
         </TouchableOpacity>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: COLORS._211031,
-        borderTopColor: '#3E1E5C',
-        borderTopWidth: 1
+        marginHorizontal: getScaleSize(24),
+        marginTop: getScaleSize(16),
     },
     tabContainer: {
-        paddingTop: getScaleSize(15),
-        flexDirection: 'row'
+        flexDirection: 'row',
+        alignItems: 'center',
+        backgroundColor: COLORS._FFF,
+        borderRadius: getScaleSize(86),
+        paddingVertical: getScaleSize(16),
+
     },
     tabItem: {
         flex: 1.0,
-        justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        // flexDirection: 'row',
+        // justifyContent: 'space-between',
     },
     tabImage: {
-        height: getScaleSize(28),
-        width: getScaleSize(28),
-        tintColor: COLORS._FFF
+        height: getScaleSize(24),
+        width: getScaleSize(24),
     },
+    iconBox: {
+        width: getScaleSize(38),
+        height: getScaleSize(38),
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: getScaleSize(20),
+    },
+    selectIconBox: {
+        width: getScaleSize(38),
+        height: getScaleSize(38),
+        backgroundColor: COLORS._211031,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: getScaleSize(20),
+    }
 })
 
 export default Tabbar

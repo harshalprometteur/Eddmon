@@ -40,7 +40,7 @@ export default function Welcome(props: any) {
                     style={styles.btnsView}>
                     <Text
                         font={FONTS.Semi_Bold}
-                        color={COLORS._8118D7}
+                        color={COLORS._B058F8}
                         size={getScaleSize(16)}>
                         {STRING.sinscrire}
                     </Text>
@@ -53,7 +53,7 @@ export default function Welcome(props: any) {
 const styles = StyleSheet.create({
     container: {
         flex: 1.0,
-        backgroundColor: COLORS._FFF,
+        backgroundColor: COLORS._211031,
     },
     headerContaioner: {
         marginHorizontal: getScaleSize(24)
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
         height: ((Dimensions.get('window').width - 48) * 539) / 327
     },
     btnView: {
-        backgroundColor: COLORS._8118D7,
+        backgroundColor: COLORS._B058F8,
         paddingVertical: getScaleSize(16),
         borderRadius: getScaleSize(6),
         alignItems: 'center',
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
         borderRadius: getScaleSize(6),
         alignItems: 'center',
         borderWidth: 1,
-        borderColor: COLORS._8118D7,
+        borderColor: COLORS._B058F8,
         marginBottom: getScaleSize(20)
     }
 })

@@ -26,7 +26,7 @@ export default function Login(props: any) {
                 <View>
                     <Text
                         font={FONTS.Regular}
-                        color={COLORS._202020}
+                        color={COLORS._807694}
                         size={getScaleSize(14)}>
                         {STRING.adresse_email}
                     </Text>
@@ -40,7 +40,7 @@ export default function Login(props: any) {
                 <View>
                     <Text
                         font={FONTS.Regular}
-                        color={COLORS._202020}
+                        color={COLORS._807694}
                         size={getScaleSize(14)}>
                         {STRING.mot_de_passe}
                     </Text>
@@ -59,7 +59,7 @@ export default function Login(props: any) {
                     <Text
                         style={styles.textStyle}
                         font={FONTS.Semi_Bold}
-                        color={COLORS._202020}
+                        color={COLORS._FFF}
                         size={getScaleSize(14)}>
                         {STRING.mot_de_passe_oublié_q}
                     </Text>
@@ -83,15 +83,15 @@ export default function Login(props: any) {
                     <Text
                         style={{ textAlign: 'center' }}
                         font={FONTS.Regular}
-                        color={COLORS._202020}
+                        color={COLORS._FFF}
                         size={getScaleSize(14)}>
-                        {STRING.pas_encore_de_compte}
+                        {STRING.pas_encore_de_compte}{' '}
                         <Text
                             style={styles.textStyle}
                             font={FONTS.Semi_Bold}
-                            color={COLORS._202020}
+                            color={COLORS._FFF}
                             size={getScaleSize(14)}>
-                            {' '}{STRING.sinscrire}
+                            {STRING.sinscrire}
                         </Text>
                     </Text>
                 </TouchableOpacity>
@@ -106,6 +106,7 @@ export default function Login(props: any) {
                 }}
                 btnText={STRING.ok}
                 title={STRING.popupText}
+                subTitle={STRING.popupSubText}
                 onNext={() => {
                     props.navigation.navigate(SCREENS.ForgotPassword.identifier)
                     setModalVisible(false)
@@ -117,7 +118,7 @@ export default function Login(props: any) {
 const styles = StyleSheet.create({
     container: {
         flex: 1.0,
-        backgroundColor: COLORS._FFF,
+        backgroundColor: COLORS._211031,
     },
     headerContaioner: {
         marginHorizontal: getScaleSize(24)
@@ -128,7 +129,7 @@ const styles = StyleSheet.create({
         marginVertical: getScaleSize(32)
     },
     btnView: {
-        backgroundColor: COLORS._8118D7,
+        backgroundColor: COLORS._B058F8,
         paddingVertical: getScaleSize(16),
         borderRadius: getScaleSize(6),
         alignItems: 'center',

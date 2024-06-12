@@ -6,6 +6,12 @@ import Mymissions from "./Mymissions";
 import Splash from "./Splash";
 import Welcome from "./Welcome";
 import MissionsAvailable from "./MissionsAvailable";
+import CourseRegistration from "./CourseRegistration";
+import CourseRegistrationSecond from "./CourseRegistrationSecond";
+import CourseRegistrationThird from "./CourseRegistrationThird";
+import CourseRegistrationConfirm from "./CourseRegistrationConfirm";
+import Mysponsorships from "./Mysponsorships";
+import Chat from "./BottomBarScreens/Chat";
 
 export const SCREENS = {
     Splash: {
@@ -39,5 +45,25 @@ export const SCREENS = {
     MissionsAvailable: {
         identifier: 'MissionsAvailable',
         component: MissionsAvailable
-    }
+    },
+    CourseRegistration: {
+        identifier: 'CourseRegistration',
+        component: CourseRegistration
+    },
+    CourseRegistrationSecond: {
+        identifier: 'CourseRegistrationSecond',
+        component: CourseRegistrationSecond
+    },
+    CourseRegistrationThird: {
+        identifier: 'CourseRegistrationThird',
+        component: CourseRegistrationThird
+    },
+    CourseRegistrationConfirm: {
+        identifier: 'CourseRegistrationConfirm',
+        component: CourseRegistrationConfirm
+    },
+    Mysponsorships: {
+        identifier: 'Mysponsorships',
+        component: Mysponsorships
+    },
 }

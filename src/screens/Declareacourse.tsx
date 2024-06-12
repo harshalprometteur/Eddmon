@@ -23,7 +23,8 @@ export default function Declareacourse(props: any) {
     return (
         <View style={styles.container}>
             <Header
-                title='Déclarer un cours'
+                isDarkBg={true}
+                title={STRING.declare_a_cours}
                 onBack={() => {
                     props.navigation.goBack()
                 }} />
@@ -103,7 +104,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1.0,
         paddingHorizontal: getScaleSize(16),
-        backgroundColor: COLORS._FFF,
+        backgroundColor: COLORS._211031,
     },
     logoContainer: {
         flex: 1.0,

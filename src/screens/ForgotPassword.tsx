@@ -7,6 +7,8 @@ import { Header, Input, Popup, Text } from '../components'
 //ASSETS & CONSTANT
 import { COLORS, FONTS } from '../assets'
 import { STRING, getScaleSize } from '../constant'
+
+//SCREES
 import { SCREENS } from '.'
 
 export default function ForgotPassword(props: any) {
@@ -18,12 +20,13 @@ export default function ForgotPassword(props: any) {
     return (
         <View style={styles.container}>
             <Header
+                isDarkBg={true}
                 title={STRING.mot_de_passe_oublié} />
             <View style={styles.headerContaioner}>
                 <View>
                     <Text
                         font={FONTS.Regular}
-                        color={COLORS._202020}
+                        color={COLORS._FFF}
                         size={getScaleSize(14)}>
                         {STRING.nouveau_mot_de_passe}
                     </Text>
@@ -38,7 +41,7 @@ export default function ForgotPassword(props: any) {
                 <View>
                     <Text
                         font={FONTS.Regular}
-                        color={COLORS._202020}
+                        color={COLORS._FFF}
                         size={getScaleSize(14)}>
                         {STRING.confirmation_du_nouveau_mot_de_passe}
                     </Text>
@@ -81,14 +84,14 @@ export default function ForgotPassword(props: any) {
 const styles = StyleSheet.create({
     container: {
         flex: 1.0,
-        backgroundColor: COLORS._FFF,
+        backgroundColor: COLORS._211031,
     },
     headerContaioner: {
         marginHorizontal: getScaleSize(24),
         marginTop: getScaleSize(20)
     },
     btnView: {
-        backgroundColor: COLORS._8118D7,
+        backgroundColor: COLORS._B058F8,
         paddingVertical: getScaleSize(16),
         borderRadius: getScaleSize(6),
         alignItems: 'center',

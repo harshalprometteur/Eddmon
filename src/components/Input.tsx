@@ -1,9 +1,9 @@
 import React from 'react'
-import { StyleProp, StyleSheet, TextInput, View, ViewStyle, Platform, KeyboardTypeOptions } from 'react-native'
+import { StyleProp, StyleSheet, TextInput, View, ViewStyle, Platform, KeyboardTypeOptions, Image } from 'react-native'
 
 //CONSTANT & ASSETS
 import { getScaleSize } from '../constant'
-import { COLORS, FONTS } from '../assets'
+import { COLORS, FONTS, IMAGES } from '../assets'
 
 
 interface InputProps {
@@ -16,6 +16,9 @@ interface InputProps {
     value?: string | undefined,
     keyboardType?: KeyboardTypeOptions | undefined,
     editable?: boolean | undefined,
+    downIcon?: boolean | undefined,
+    placeholderTextColor?: string | undefined,
+    numberOfLines?: number 
 }
 
 const Input = (props: InputProps) => {
@@ -30,13 +33,18 @@ const Input = (props: InputProps) => {
                 value={props.value}
                 editable={props.editable}
                 keyboardType={props.keyboardType}
+                placeholderTextColor={props.placeholderTextColor}
+                numberOfLines={props.numberOfLines}
             />
+            {props.downIcon &&
+                <Image style={styles.productImage} source={IMAGES.downarrow} />
+            }
         </View>
     )
 }
 const styles = StyleSheet.create({
     container: {
-        borderColor: COLORS._DEDEDE,
+        borderColor: COLORS._5D5069,
         borderWidth: 1,
         borderRadius: getScaleSize(4),
         paddingHorizontal: getScaleSize(16),
@@ -46,9 +54,14 @@ const styles = StyleSheet.create({
     input: {
         fontSize: getScaleSize(14),
         fontFamily: FONTS.Regular,
-        color: COLORS._202020,
+        color: COLORS._FFF,
         flex: 1.0,
         height: Platform.OS == 'ios' ? getScaleSize(48) : null,
     },
+    productImage: {
+        height: getScaleSize(24),
+        width: getScaleSize(24),
+        tintColor: COLORS._FFF
+    }
 })
 export default Input

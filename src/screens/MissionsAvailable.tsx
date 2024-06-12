@@ -1,8 +1,15 @@
 import { FlatList, Image, SafeAreaView, ScrollView, StyleSheet, View } from 'react-native'
 import React from 'react'
+
+//ASSETS & CONSTANT
 import { COLORS, FONTS, IMAGES } from '../assets'
-import { Header, HomeCard, Text } from '../components'
 import { getScaleSize } from '../constant'
+
+//COMPONENTS
+import { Header, HomeCard, Text } from '../components'
+
+//SCREENS
+import { SCREENS } from '.'
 
 export default function MissionsAvailable(props: any) {
     return (
@@ -13,7 +20,7 @@ export default function MissionsAvailable(props: any) {
                 }}
                 title={'Missions disponibles'}
                 isDarkBg={true} />
-            <View>
+            <View style={{ flex: 1.0 }}>
                 <ScrollView
                     style={styles.headerView}
                     horizontal={true}
@@ -27,7 +34,7 @@ export default function MissionsAvailable(props: any) {
                             <Text
                                 style={{ marginHorizontal: getScaleSize(4) }}
                                 font={FONTS.Regular}
-                                color={COLORS._6C7280}
+                                color={COLORS._FFF}
                                 size={getScaleSize(16)}>
                                 {'Type de mission'}
                             </Text>
@@ -38,7 +45,7 @@ export default function MissionsAvailable(props: any) {
                             <Text
                                 style={{ marginHorizontal: getScaleSize(4) }}
                                 font={FONTS.Regular}
-                                color={COLORS._6C7280}
+                                color={COLORS._FFF}
                                 size={getScaleSize(16)}>
                                 {'Matière'}
                             </Text>
@@ -49,7 +56,7 @@ export default function MissionsAvailable(props: any) {
                             <Text
                                 style={{ marginHorizontal: getScaleSize(4) }}
                                 font={FONTS.Regular}
-                                color={COLORS._6C7280}
+                                color={COLORS._FFF}
                                 size={getScaleSize(16)}>
                                 {'Type de mission'}
                             </Text>
@@ -63,7 +70,12 @@ export default function MissionsAvailable(props: any) {
                     keyExtractor={(item, index) => index.toString()}
                     renderItem={({ item: any, index: number }) => {
                         return (
-                            <HomeCard  />
+                            <View style={styles.itemContainer}>
+                                <HomeCard
+                                    onNext={() => {
+                                        props.navigation.navigate(SCREENS.CourseRegistration.identifier)
+                                    }} />
+                            </View>
                         )
                     }} />
             </View>
@@ -89,16 +101,22 @@ const styles = StyleSheet.create({
     },
     filterIcon: {
         width: getScaleSize(24),
-        height: getScaleSize(24)
+        height: getScaleSize(24),
+        marginVertical: getScaleSize(8),
+        marginHorizontal: getScaleSize(4),
+        tintColor: COLORS._FFF
     },
     headerItemView: {
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: COLORS._FFF,
-        paddingHorizontal: getScaleSize(16),
-        paddingVertical: getScaleSize(8),
+        backgroundColor: COLORS._493672,
+        paddingHorizontal: getScaleSize(12),
         borderRadius: getScaleSize(20),
-        marginRight: getScaleSize(8)
-
+        marginRight: getScaleSize(8),
+        flex: 1
+    },
+    itemContainer: {
+        alignItems: 'center',
+        marginBottom: getScaleSize(24)
     }
 })

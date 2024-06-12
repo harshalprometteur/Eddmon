@@ -32,7 +32,7 @@ export default function Splash(props: any) {
 const styles = StyleSheet.create({
     container: {
         flex: 1.0,
-        backgroundColor: COLORS._8118D7,
+        backgroundColor: COLORS._B058F8,
     },
     logoContainer: {
         flex: 1.0,

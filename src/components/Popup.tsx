@@ -19,11 +19,20 @@ export default function Popup(props: any) {
                 <View style={styles.container}>
                     <Text
                         style={{ textAlign: 'center' }}
-                        font={FONTS.Regular}
-                        color={COLORS._202020}
-                        size={getScaleSize(14)}>
+                        font={FONTS.italic_Bold}
+                        color={COLORS._FFF}
+                        size={getScaleSize(28)}>
                         {props.title}
                     </Text>
+                    {props.subTitle &&
+                        <Text
+                            style={{ marginTop: getScaleSize(16) }}
+                            font={FONTS.Regular}
+                            color={COLORS._FFF}
+                            size={getScaleSize(14)}>
+                            {props.subTitle}
+                        </Text>
+                        }
                     {props.onNext &&
                         <TouchableOpacity onPress={props.onNext} style={styles.btnView}>
                             <Text
@@ -41,7 +50,7 @@ export default function Popup(props: any) {
                             <Text
                                 style={styles.textStyle}
                                 font={FONTS.Semi_Bold}
-                                color={COLORS._202020}
+                                color={COLORS._FFF}
                                 size={getScaleSize(14)}>
                                 {STRING.annuler}
                             </Text>
@@ -61,12 +70,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     container: {
-        backgroundColor: COLORS._FFF,
+        backgroundColor: COLORS._4D405A,
         padding: getScaleSize(16),
         borderRadius: getScaleSize(16)
     },
     btnView: {
-        backgroundColor: COLORS._8118D7,
+        backgroundColor: COLORS._B058F8,
         paddingVertical: getScaleSize(16),
         borderRadius: getScaleSize(6),
         alignItems: 'center',

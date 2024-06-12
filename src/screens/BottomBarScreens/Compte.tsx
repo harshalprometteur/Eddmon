@@ -21,7 +21,8 @@ export default function Compte(props: any) {
     return (
         <View style={styles.container}>
             <Header
-                type={'home'} />
+                type={'home'}
+                navi={props.navigation} />
             <View style={styles.headerContainer}>
                 <Text
                     font={FONTS.Regular}
@@ -45,42 +46,42 @@ export default function Compte(props: any) {
                         props.navigation.navigate(SCREENS.MissionsAvailable.identifier)
                     }} style={styles.headerView}>
                     <Text
-                        font={FONTS.Bold}
+                        font={FONTS.Semi_Bold}
                         color={COLORS._FFF}
-                        size={getScaleSize(20)}>
+                        size={getScaleSize(16)}>
                         {STRING.missions_available}
                     </Text>
                     <Text
-                        style={{ textDecorationLine: 'underline' }}
-                        font={FONTS.Semi_Bold}
-                        color={COLORS._FFF}
+                        font={FONTS.Regular}
+                        color={COLORS._008DFB}
                         size={getScaleSize(14)}>
                         {STRING.see_everything}
                     </Text>
                 </TouchableOpacity>
-                <Carousel
-                    ref={carouselRef}
-                    inactiveSlideScale={1}
-                    inactiveSlideOpacity={1}
-                    sliderWidth={Dimensions.get('window').width}
-                    itemWidth={Dimensions.get('window').width - getScaleSize(40)}
-                    data={arrey}
-                    renderItem={({ item: any, index: number }) => {
-                        return (
-                            <HomeCard isFromHome={true} />
-                        )
-                    }}
-                />
-
+                <View>
+                    <Carousel
+                        ref={carouselRef}
+                        inactiveSlideScale={0.9}
+                        inactiveSlideOpacity={0.5}
+                        sliderWidth={Dimensions.get('window').width}
+                        itemWidth={Dimensions.get('window').width - getScaleSize(60)}
+                        data={arrey}
+                        renderItem={({ item: any, index: number }) => {
+                            return (
+                                <HomeCard isFromHome={true} />
+                            )
+                        }}
+                    />
+                </View>
                 <View style={styles.imageView}>
-                    <Image source={IMAGES.greenHand} style={styles.greenHandIcon} />
+                    <Image resizeMode='cover' source={IMAGES.greenHand} style={styles.greenHandIcon} />
                 </View>
                 <View style={styles.quizzesView}>
                     <Text
                         font={FONTS.italic_Bold}
                         color={COLORS._FFF}
-                        size={getScaleSize(20)}>
-                        {'Quizzes'}
+                        size={getScaleSize(16)}>
+                        {'Jeux concours'}
                     </Text>
                     <Image source={IMAGES.info} style={styles.infoIcon} />
                 </View>
@@ -90,10 +91,10 @@ export default function Compte(props: any) {
                 </View>
                 <View style={styles.tipsView}>
                     <Text
-                        font={FONTS.italic_Bold}
+                        font={FONTS.Semi_Bold}
                         color={COLORS._FFF}
-                        size={getScaleSize(20)}>
-                        {'Tips'}
+                        size={getScaleSize(16)}>
+                        {'Bons plans'}
                     </Text>
                 </View>
                 <FlatList
@@ -149,7 +150,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     missionBtn: {
-        backgroundColor: COLORS._8118D7,
+        backgroundColor: COLORS._B058F8,
         marginHorizontal: getScaleSize(24),
         marginVertical: getScaleSize(24),
         paddingVertical: getScaleSize(16),
@@ -205,6 +206,6 @@ const styles = StyleSheet.create({
     },
     textStyle: {
         textDecorationLine: 'underline',
-        marginTop: getScaleSize(8)
+        marginTop: getScaleSize(8),
     }
 })

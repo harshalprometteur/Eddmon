@@ -27,99 +27,85 @@ export default function QuizzesCard() {
     }
 
     return (
-        <View style={styles.container}>
-            <View style={styles.mainContainer}>
-                <ScrollView style={{ height: getScaleSize(287) }} showsVerticalScrollIndicator={false}>
-                    {item.map((e, index) => {
-                        return (
-                            <TouchableOpacity style={styles.itemContainer} key={e.id}>
-                                <View style={styles.numberText}>
-                                    <Text
-                                        font={FONTS.Semi_Bold}
-                                        color={TextColor(index)}
-                                        size={getScaleSize(16)}>
-                                        {'#'}{e.id}
-                                    </Text>
-                                </View>
-                                <View style={styles.profileView} />
+        <View style={styles.mainContainer}>
+            <ScrollView style={{ height: getScaleSize(287) }} showsVerticalScrollIndicator={false}>
+                {item.map((e, index) => {
+                    return (
+                        <TouchableOpacity style={styles.itemContainer} key={e.id}>
+                            <View style={styles.numberText}>
                                 <Text
-                                    style={{ flex: 1.0 }}
-                                    font={FONTS.Regular}
-                                    color={COLORS._202020}
+                                    font={FONTS.Bold}
+                                    color={COLORS._FFF}
                                     size={getScaleSize(14)}>
-                                    {e.title}
+                                    {'#'}{e.id}
                                 </Text>
-                                <Text
-                                    font={FONTS.Semi_Bold}
-                                    color={COLORS._202020}
-                                    size={getScaleSize(16)}>
-                                    {'36h'}
-                                </Text>
-                            </TouchableOpacity>
-                        )
-                    })}
-                </ScrollView>
-                <View style={{ alignItems: 'center' }}>
-                    <View style={styles.bottView} />
-                    <View style={styles.bottsView} />
-                    <View style={styles.bottsView} />
-                </View>
-                <TouchableOpacity style={styles.itemContainer}>
-                    <View style={styles.numberText}>
-                        <Text
-                            font={FONTS.Semi_Bold}
-                            color={COLORS._ACACAB}
-                            size={getScaleSize(16)}>
-                            {'#22'}
-                        </Text>
-                    </View>
-                    <View style={styles.profileView} />
-                    <Text
-                        style={{ flex: 1.0 }}
-                        font={FONTS.Regular}
-                        color={COLORS._202020}
-                        size={getScaleSize(14)}>
-                        {'Felipe Gueganou'}
-                    </Text>
-                    <Text
-                        font={FONTS.Semi_Bold}
-                        color={COLORS._202020}
-                        size={getScaleSize(16)}>
-                        {'12 P.M.'}
-                    </Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.btnView}>
-                    <Text
-                        font={FONTS.Semi_Bold}
-                        color={COLORS._FF7020}
-                        size={getScaleSize(16)}>
-                        {'End of competition in hh:mm'}
-                    </Text>
-                </TouchableOpacity>
+                            </View>
+                            <View style={styles.profileView} />
+                            <Text
+                                style={{ flex: 1.0 }}
+                                font={FONTS.Regular}
+                                color={COLORS._FFF}
+                                size={getScaleSize(12)}>
+                                {e.title}
+                            </Text>
+                            <Text
+                                font={FONTS.Semi_Bold}
+                                color={COLORS._807694}
+                                size={getScaleSize(16)}>
+                                {'36h'}
+                            </Text>
+                        </TouchableOpacity>
+                    )
+                })}
+            </ScrollView>
+            <View style={{ alignItems: 'center' }}>
+                <View style={styles.bottView} />
+                <View style={styles.bottsView} />
+                <View style={styles.bottsView} />
             </View>
+            <TouchableOpacity style={styles.itemContainer}>
+                <View style={styles.numberText}>
+                    <Text
+                        font={FONTS.Semi_Bold}
+                        color={COLORS._FFF}
+                        size={getScaleSize(16)}>
+                        {'#22'}
+                    </Text>
+                </View>
+                <View style={styles.profileView} />
+                <Text
+                    style={{ flex: 1.0 }}
+                    font={FONTS.Regular}
+                    color={COLORS._FFF}
+                    size={getScaleSize(14)}>
+                    {'Felipe Gueganou'}
+                </Text>
+                <Text
+                    font={FONTS.Semi_Bold}
+                    color={COLORS._807694}
+                    size={getScaleSize(16)}>
+                    {'12h'}
+                </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.btnView}>
+                <Text
+                    font={FONTS.Semi_Bold}
+                    color={COLORS._FF7020}
+                    size={getScaleSize(16)}>
+                    {'Fin du concours dans hh:mm'}
+                </Text>
+            </TouchableOpacity>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    container: {
-        backgroundColor: COLORS._FFDDCA,
-        marginLeft: getScaleSize(34),
-        marginRight: getScaleSize(24),
-        marginVertical: getScaleSize(16),
-        borderRadius: getScaleSize(44),
-    },
     mainContainer: {
-        backgroundColor: COLORS._FFF,
+        backgroundColor: COLORS._2B1B4D,
         borderRadius: getScaleSize(40),
-        marginTop: -10,
-        marginLeft: -10,
-        marginBottom: 10,
-        borderWidth: 1,
-        borderColor: COLORS._FFDDCA,
         padding: getScaleSize(16),
-        width: Dimensions.get('window').width - getScaleSize(50) - 10,
+        marginHorizontal: getScaleSize(24)
     },
     itemContainer: {
         flexDirection: 'row',
@@ -138,7 +124,7 @@ const styles = StyleSheet.create({
     profileView: {
         width: getScaleSize(42),
         height: getScaleSize(42),
-        backgroundColor: 'grey',
+        backgroundColor: 'lightgrey',
         marginRight: getScaleSize(16),
         borderRadius: getScaleSize(21)
     },
@@ -151,7 +137,7 @@ const styles = StyleSheet.create({
     },
 
     btnView: {
-        backgroundColor: COLORS._FFDDCA,
+        backgroundColor: COLORS._FF9052,
         borderRadius: getScaleSize(7),
         paddingVertical: getScaleSize(16),
         alignItems: 'center',
